@@ -31,10 +31,10 @@ const GetLatestBlock = () => {
       { message: "compSignatures", value: compSignatures },
       "*"
     );
-    const responseVerify = await fcl
+    const responseVerified = await fcl
       .currentUser()
       .verifyUserSignatures(hexMessage, compSignatures);
-    console.log(responseVerify);
+    console.log(responseVerified);
     setSignedMessage(compSignatures[0].signature);
     setUserAddress(compSignatures[0].addr);
   };
