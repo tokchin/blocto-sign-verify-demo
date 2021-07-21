@@ -16,8 +16,6 @@ function App() {
     <Wrapper>
       <Authenticate />
       <SignUserMessage />
-      <GetLatestBlock />
-      <VerifyUserMessage />
     </Wrapper>
   );
 }

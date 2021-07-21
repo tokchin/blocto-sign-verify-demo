@@ -26,10 +26,13 @@ const GetLatestBlock = () => {
     event.preventDefault();
     const hexMessage = utf8ToHex(userMessage);
 
-    const response = await fcl.currentUser().signUserMessage(hexMessage);
-    console.log(response);
-    setSignedMessage(response.signature);
-    setUserAddress(response.addr);
+    const compSignatures = await fcl.currentUser().signUserMessage(hexMessage);
+    window.parent.postMessage(
+      { message: "compSignatures", value: compSignatures },
+      "*"
+    );
+    setSignedMessage(compSignatures[0].signature);
+    setUserAddress(compSignatures[0].addr);
   };
   const handleChange = (event) => {
     console.log(event);
